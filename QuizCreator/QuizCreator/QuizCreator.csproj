@@ -154,6 +154,7 @@
     <Content Include="Views\Question\Pick.cshtml" />
     <Content Include="Views\Question\Edit.cshtml" />
     <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

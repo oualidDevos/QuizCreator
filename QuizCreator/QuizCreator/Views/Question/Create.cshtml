@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Create";
 }
 
@@ -23,16 +22,16 @@
     </div>
     <div class="form-group">
         <label>Question :</label>
-        <input type="text" name="Question" value="" class="form-control"/>
+        <input type="text" name="Question" value="" class="form-control" />
     </div>
-{
+    {
         if (int.Parse(Request["QuestionType"] + "") == 3)
         {
-           @Html.Partial("_OneChoiceView")
+            @Html.Partial("_OneChoiceView")
         }
         else if (int.Parse(Request["QuestionType"] + "") == 2)
         {
-           @Html.Partial("_MultipleChoicesView")
+            @Html.Partial("_MultipleChoicesView")
 
             @section scripts{
                 <script>
@@ -47,6 +46,6 @@
                 </script>
             }
         }
-}
-    <button type="submit" class="btn btn-primary">Create</button>
     }
+    <button type="submit" class="btn btn-primary">Create</button>
+}

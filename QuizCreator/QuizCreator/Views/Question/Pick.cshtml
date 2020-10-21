@@ -4,7 +4,7 @@
 }
 
 <h2>Getting ready to make a quiz</h2>
-@using (Html.BeginForm("Pick", "Question", FormMethod.Post, new { id="Pick"}))
+@using (Html.BeginForm("Pick", "Question", FormMethod.Post, new { id = "Pick" }))
 {
 }
 @using (Html.BeginForm("Pick", "Question", FormMethod.Get, new { id = "ModulechangeForm" }))
@@ -17,7 +17,7 @@
 
 <div class="form-group">
     <label> Partie Module :</label>
-    @Html.DropDownList("PartieModule", null, new { name="PartieModule",@class = "form-control",form= "Pick" })
+    @Html.DropDownList("PartieModule", null, new { name = "PartieModule", @class = "form-control", form = "Pick" })
 </div>
 <div class="form-group">
     <label> Difficulty :</label>
@@ -29,9 +29,9 @@
 </div>
 <div class="form-group">
     <label> Question Type :</label>
-    @Html.DropDownList("QuestionType", null, new { @class = "form-control", name= "QuestionType", form = "Pick" })
+    @Html.DropDownList("QuestionType", null, new { @class = "form-control", name = "QuestionType", form = "Pick" })
 </div>
- 
+
 <div class="form-group">
     <button type="submit" class="btn btn-primary" form="Pick">Continue</button>
 </div>

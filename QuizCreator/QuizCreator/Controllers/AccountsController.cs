@@ -83,9 +83,10 @@ namespace QuizCreator.Controllers
         {
             if (ModelState.IsValid)
             {
+                Encrypt(account.Password);
                 db.Accounts.Add(account);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             return View(account);

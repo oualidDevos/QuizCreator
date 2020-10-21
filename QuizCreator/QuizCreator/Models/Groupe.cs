@@ -12,7 +12,7 @@ namespace QuizCreator.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Groupe()
         {
-            Modules = new HashSet<Module>();
+            FormateurModuleGroupes = new HashSet<FormateurModuleGroupe>();
             Stagiaires = new HashSet<Stagiaire>();
         }
 
@@ -30,7 +30,7 @@ namespace QuizCreator.Models
         public virtual Filliere Filliere { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Module> Modules { get; set; }
+        public virtual ICollection<FormateurModuleGroupe> FormateurModuleGroupes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stagiaire> Stagiaires { get; set; }

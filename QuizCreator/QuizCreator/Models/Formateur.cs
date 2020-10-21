@@ -18,8 +18,6 @@ namespace QuizCreator.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdAccount { get; set; }
 
-        public int? IdModule { get; set; }
-
         [StringLength(50)]
         public string CIN { get; set; }
 
@@ -33,7 +31,5 @@ namespace QuizCreator.Models
         public string Type { get; set; }
 
         public virtual Account Account { get; set; }
-
-        public virtual Module Module { get; set; }
     }
 }

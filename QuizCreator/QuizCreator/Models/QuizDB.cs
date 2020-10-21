@@ -16,6 +16,7 @@ namespace QuizCreator.Models
         public virtual DbSet<ChoixReponse> ChoixReponses { get; set; }
         public virtual DbSet<Filliere> Fillieres { get; set; }
         public virtual DbSet<Formateur> Formateurs { get; set; }
+        public virtual DbSet<FormateurModuleGroupe> FormateurModuleGroupes { get; set; }
         public virtual DbSet<Groupe> Groupes { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<PartieModule> PartieModules { get; set; }
@@ -42,6 +43,11 @@ namespace QuizCreator.Models
 
             modelBuilder.Entity<Account>()
                 .HasMany(e => e.Formateurs)
+                .WithRequired(e => e.Account)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Account>()
+                .HasMany(e => e.FormateurModuleGroupes)
                 .WithRequired(e => e.Account)
                 .WillCascadeOnDelete(false);
 
@@ -98,6 +104,11 @@ namespace QuizCreator.Models
                 .Property(e => e.GroupeName)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Groupe>()
+                .HasMany(e => e.FormateurModuleGroupes)
+                .WithRequired(e => e.Groupe)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Module>()
                 .Property(e => e.ModuleName)
                 .IsUnicode(false);
@@ -105,6 +116,11 @@ namespace QuizCreator.Models
             modelBuilder.Entity<Module>()
                 .Property(e => e.ModuleSlug)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Module>()
+                .HasMany(e => e.FormateurModuleGroupes)
+                .WithRequired(e => e.Module)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PartieModule>()
                 .Property(e => e.PartieModuleName)

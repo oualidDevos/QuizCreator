@@ -13,6 +13,7 @@ namespace QuizCreator.Models
         public Account()
         {
             Formateurs = new HashSet<Formateur>();
+            FormateurModuleGroupes = new HashSet<FormateurModuleGroupe>();
             Questions = new HashSet<Question>();
             Quizes = new HashSet<Quize>();
             QuizeStagiaireReponses = new HashSet<QuizeStagiaireReponse>();
@@ -35,6 +36,9 @@ namespace QuizCreator.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Formateur> Formateurs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FormateurModuleGroupe> FormateurModuleGroupes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Questions { get; set; }

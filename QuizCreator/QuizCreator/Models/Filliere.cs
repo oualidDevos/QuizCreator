@@ -13,6 +13,7 @@ namespace QuizCreator.Models
         public Filliere()
         {
             Groupes = new HashSet<Groupe>();
+            Modules = new HashSet<Module>();
         }
 
         [Key]
@@ -26,5 +27,8 @@ namespace QuizCreator.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Groupe> Groupes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Module> Modules { get; set; }
     }
 }

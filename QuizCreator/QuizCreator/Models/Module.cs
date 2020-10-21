@@ -12,7 +12,7 @@ namespace QuizCreator.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Module()
         {
-            Formateurs = new HashSet<Formateur>();
+            FormateurModuleGroupes = new HashSet<FormateurModuleGroupe>();
             PartieModules = new HashSet<PartieModule>();
             Quizes = new HashSet<Quize>();
         }
@@ -20,7 +20,7 @@ namespace QuizCreator.Models
         [Key]
         public int IdModule { get; set; }
 
-        public int? IdGroupe { get; set; }
+        public int? IdFilliere { get; set; }
 
         [StringLength(150)]
         public string ModuleName { get; set; }
@@ -30,10 +30,10 @@ namespace QuizCreator.Models
         [StringLength(50)]
         public string ModuleSlug { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Formateur> Formateurs { get; set; }
+        public virtual Filliere Filliere { get; set; }
 
-        public virtual Groupe Groupe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FormateurModuleGroupe> FormateurModuleGroupes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PartieModule> PartieModules { get; set; }

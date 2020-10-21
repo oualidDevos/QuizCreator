@@ -1,0 +1,20 @@
+﻿@model QuizeCreator.Models.Account
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(w => w.Email)
+        @Html.TextBoxFor(w => w.Email, new { type = "email", @class = "form-control" })
+        @Html.ValidationMessageFor(w => w.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(w => w.Password)
+        @Html.TextBoxFor(w => w.Password, new { type="password",@class = "form-control" })
+        @Html.ValidationMessageFor(w => w.Password)
+    </div>
+    <button class="btn btn-primary">Login</button>
+}

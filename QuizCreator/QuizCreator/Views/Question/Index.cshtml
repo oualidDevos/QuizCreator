@@ -1,0 +1,53 @@
+﻿@model List<QuizeCreator.Models.Question>
+@{
+    ViewBag.Title = "Index";
+}
+<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+<h2>Welcome !!!</h2>
+<div class="form-group">
+    @Html.ActionLink("Add New Question", "Pick", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Make a quiz", "Create","Quize",null, new { @class = "btn btn-primary" })
+</div>
+
+<table id="table" class="table-bordered table table-hover">
+    <thead>
+        <th>Question</th>
+        <th>Accessibilité</th>
+        <th>Niveau</th>
+        <th>Module</th>
+        <th>Etat</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+        <tr>
+            <td>@question.Contenu</td>
+            @if (question.Accessibilite.Value)
+            {
+                <td style="color:seagreen">Accessible</td>
+            }
+            else
+            {
+                <td style="color:lightcoral">Accessible</td>
+            }
+            <td>@question.Niveau</td>
+            <td>@question.PartieModule.Module.Name</td>
+            <td>@question.Etat</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new {idQuestion= question.IdQuestion }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Update", "Edit", new { idQuestion = question.IdQuestion }, new { @class = "btn btn-success" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(function () {
+            $('#table').DataTable();
+        })
+    </script>
+}

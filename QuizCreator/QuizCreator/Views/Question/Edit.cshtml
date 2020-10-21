@@ -1,0 +1,59 @@
+﻿@model QuizeCreator.ViewModels.EditQuestioViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Question</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model=> model.question.IdQuestion)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.question.Contenu, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.question.Contenu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.question.Contenu, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.question.Etat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(model => model.question.Etat,new SelectList(Model.Etat),new {@class="form-control" })
+                    @Html.ValidationMessageFor(model => model.question.Etat, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.question.Accessibilite, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownListFor(d=>d.question.Accessibilite,new SelectList(Model.Accessibilite),new { @class="form-control"})
+                    @Html.ValidationMessageFor(model => model.question.Accessibilite, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.question.Niveau, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(w=>w.level,new SelectList(Model.level), new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.question.Niveau, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.question.IdPartieModule, "IdPartieModule", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(w=>w.partieModule,new SelectList(Model.partieModule,"idPartieModule","name"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.question.IdPartieModule, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

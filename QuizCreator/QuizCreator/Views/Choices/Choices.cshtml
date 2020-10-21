@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Choices";
+}
+<h2>Make wrong answers for the question :@ViewBag.Question</h2>
+@using (Html.BeginForm())
+{
+    if (int.Parse(Request["reponseLength"]) == 2)
+    {
+        <div class="form-group">
+            <label for="#">The first answer : </label>
+            <input type="text" name="wrong_answers" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="#">The second answer : </label>
+            <input type="text" name="wrong_answers" class="form-control" />
+        </div>
+    }
+    else if(int.Parse(Request["reponseLength"])==3)
+    {
+        <div class="form-group">
+            <label for="#">The first answer : </label>
+            <input type="text" name="wrong_answers" class="form-control" />
+        </div>
+    }else
+    {
+        <h1 style="color:red;">Error!!!!</h1>
+    }
+    <button type="submit" class="btn btn-success">Add</button>
+}
+

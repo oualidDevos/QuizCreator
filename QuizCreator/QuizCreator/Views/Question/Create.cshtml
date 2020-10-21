@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Etat :</label>
+        <select name="Etat" class="form-control">
+            <option value="True">Valid</option>
+            <option value="False">Not Valid</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Accessibilité :</label>
+        <select name="Accessible" class="form-control">
+            <option value="True">Accessible</option>
+            <option value="False">Not Accessible</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Question :</label>
+        <input type="text" name="Question" value="" class="form-control"/>
+    </div>
+{
+        if (int.Parse(Request["QuestionType"] + "") == 3)
+        {
+           @Html.Partial("_OneChoiceView")
+        }
+        else if (int.Parse(Request["QuestionType"] + "") == 2)
+        {
+           @Html.Partial("_MultipleChoicesView")
+
+            @section scripts{
+                <script>
+                        $(function () {
+                            let questionType = window.location.href.split('QuestionType=')[1];
+                            var btn = $("#AddNewRep").click(function () {
+                                var area = $("#Area");
+                                var reponse = $("#Reponses");
+                                area.text(area.text() + "" + reponse.val() + ";");
+                            });
+                        });
+                </script>
+            }
+        }
+}
+    <button type="submit" class="btn btn-primary">Create</button>
+    }

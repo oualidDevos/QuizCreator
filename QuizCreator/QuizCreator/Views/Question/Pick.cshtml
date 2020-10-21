@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Pick";
+}
+
+<h2>Getting ready to make a quiz</h2>
+@using (Html.BeginForm("Pick", "Question", FormMethod.Post, new { id="Pick"}))
+{
+}
+@using (Html.BeginForm("Pick", "Question", FormMethod.Get, new { id = "ModulechangeForm" }))
+{
+}
+<div class="form-group">
+    <label> Module :</label>
+    @Html.DropDownList("Module", null, new { name = "Module", @class = "form-control", form = "ModulechangeForm", onchange = "Select()" })
+</div>
+
+<div class="form-group">
+    <label> Partie Module :</label>
+    @Html.DropDownList("PartieModule", null, new { name="PartieModule",@class = "form-control",form= "Pick" })
+</div>
+<div class="form-group">
+    <label> Difficulty :</label>
+    <select name="Difficulty" id="Difficulty" class="form-control" form="Pick">
+        <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <option value="3">Level 3</option>
+    </select>
+</div>
+<div class="form-group">
+    <label> Question Type :</label>
+    @Html.DropDownList("QuestionType", null, new { @class = "form-control", name= "QuestionType", form = "Pick" })
+</div>
+ 
+<div class="form-group">
+    <button type="submit" class="btn btn-primary" form="Pick">Continue</button>
+</div>
+@section scripts
+{
+    <script>
+        function Select() {
+            $(function () {
+                $("#ModulechangeForm").submit();
+            });
+        }
+    </script>
+}

@@ -22,7 +22,7 @@
         @foreach (var question in Model)
         {
             <tr>
-                <td>@question.Contenu</td>
+                <td>@question.QuestionContenu</td>
                 @if (question.Accessibilite.Value)
                 {
                     <td style="color:seagreen">Accessible</td>
@@ -32,7 +32,7 @@
                     <td style="color:lightcoral">Accessible</td>
                 }
                 <td>@question.Niveau</td>
-                <td>@question.PartieModule.Module.Name</td>
+                <td>@question.PartieModule.Module.ModuleName</td>
                 <td>@question.Etat</td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", new { idQuestion = question.IdQuestion }, new { @class = "btn btn-danger" })

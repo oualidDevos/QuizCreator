@@ -6,9 +6,30 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <p>
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-danger" })
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <p>
+                @Html.ActionLink("Create Questions", "Create", "Question", null, new { @class = "btn btn-success" })
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <p>
+                @Html.ActionLink("Users List", "Users", null, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <p>
+                @Html.ActionLink("Dashboard", "Dashboard", null, new { @class = "btn btn-info" })
+            </p>
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>

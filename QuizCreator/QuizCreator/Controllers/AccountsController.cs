@@ -1,5 +1,6 @@
 ﻿using QuizCreator.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -172,6 +173,12 @@ namespace QuizCreator.Controllers
                 }
             }
             return View(account);
+        }
+
+        public ActionResult Users()
+        {
+            List<Account> users = db.Accounts.ToList();
+            return View(users);
         }
         [HttpPost]
         public ActionResult Logout()

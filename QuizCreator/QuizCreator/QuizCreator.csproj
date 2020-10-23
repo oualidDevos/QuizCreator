@@ -158,6 +158,7 @@
     <Content Include="Views\Accounts\Index.cshtml" />
     <Content Include="Views\Choices\Choice.cshtml" />
     <Content Include="Views\Choices\Choices.cshtml" />
+    <Content Include="Views\Accounts\Users.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Choices";
 }
 <h2>Make wrong answers for the question :@ViewBag.Question</h2>
@@ -16,16 +15,18 @@
             <input type="text" name="wrong_answers" class="form-control" />
         </div>
     }
-    else if(int.Parse(Request["reponseLength"])==3)
+    else if (int.Parse(Request["reponseLength"]) == 3)
     {
         <div class="form-group">
             <label for="#">The first answer : </label>
             <input type="text" name="wrong_answers" class="form-control" />
         </div>
-    }else
+    }
+    else
     {
         <h1 style="color:red;">Error!!!!</h1>
     }
     <button type="submit" class="btn btn-success">Add</button>
 }
+
 
